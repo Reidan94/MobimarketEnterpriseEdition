@@ -329,7 +329,6 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="App_Code\HtmlManager.cshtml" />
     <EntityDeploy Include="Models\MobimarketDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MobimarketDB.Designer.cs</LastGenOutput>
