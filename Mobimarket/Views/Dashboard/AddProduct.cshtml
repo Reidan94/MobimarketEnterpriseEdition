@@ -2,8 +2,6 @@
 
 @using (Html.BeginForm("ManageProductAdding", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @HtmlManager.ProccessResultContainer(ViewBag.Result)
-
     <div class="form-horizontal">
 
         <div class="form-group">
@@ -61,7 +59,7 @@
         <div class="form-group">
             <div class="col-md-10">
                 <input type="submit" value="Submit" class="btn btn-default btn-outline " />
-                @HtmlManager.AddButton(Html.ActionLink("Back", "Enterprises", "Owner"), "background-color:white")
+                <button type="button" class="btn  btn-success link-button" style="background-color:white">@Html.ActionLink("Back", "Enterprises", "Owner")</button>
             </div>
         </div>
     </div>
