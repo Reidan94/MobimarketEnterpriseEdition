@@ -285,6 +285,13 @@
     <Content Include="Images\phone.png" />
     <Content Include="Images\Clients\reidan.abdi%40gmail.com.jpg" />
     <Content Include="Images\prefanalyzer.png" />
+    <Content Include="Images\Products\Apple pie.png" />
+    <Content Include="Images\Products\Beer.jpg" />
+    <Content Include="Images\Products\french fries.jpg" />
+    <Content Include="Images\Products\Hamburger.png" />
+    <Content Include="Images\Products\Ice cream.jpg" />
+    <Content Include="Images\Products\Soup.jpg" />
+    <Content Include="Images\Products\Whisky.jpg" />
     <Content Include="Images\Users\reidan.abdi%40gmail.com.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -364,7 +371,6 @@
     <Content Include="Views\Dashboard\UserInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\Products\" />
     <Folder Include="Services\" />
     <Folder Include="Views\Api\" />
     <Folder Include="Views\Base\" />
