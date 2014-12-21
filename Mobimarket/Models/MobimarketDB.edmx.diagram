@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b361f972a9694e5f834db82ade0e92c7" Name="Diagram1">
+        <EntityTypeShape EntityType="MobimarketDBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.AspNetUser" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.BalanceOperation" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Branch" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Client" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Comment" Width="1.5" PointX="7.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Contact" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.EmailDelivery" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Enterprise" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.EnterpriseService" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Income" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Like" Width="1.5" PointX="7.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.OrderItem" Width="1.5" PointX="9.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Order" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Owner" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Product" Width="1.5" PointX="5.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobimarketDBModel.Service" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="MobimarketDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_ASP_NET_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_EnterpriseOperations" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Branch_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Enterprise_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Client_Comment" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Client_Like" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_User_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Enterprise_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Enterprise_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Enterprise_Income" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Enterprise_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_OwnerId" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_Service_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_OrderItemOrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.FK_OrderItemProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="MobimarketDBModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

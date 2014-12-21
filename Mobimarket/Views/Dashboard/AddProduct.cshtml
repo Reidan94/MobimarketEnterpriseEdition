@@ -1,0 +1,68 @@
+﻿<h2>Add Product</h2>
+
+@using (Html.BeginForm("ManageProductAdding", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @HtmlManager.ProccessResultContainer(ViewBag.Result)
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Text">Name</label>
+            <div class="col-md-2">
+                <input class="form-control" id="Name" name="Name" type="text" placeholder="Name" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Category">Category</label>
+            <div class="col-md-2">
+                <select name="Category">
+                    <option value="1">Main dish</option>
+                    <option value="2">Sweet</option>
+                    <option value="3">Drink</option>
+                    <option value="4">Meat</option>
+                    <option value="5">Soup</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Description">Description</label>
+            <div class="col-md-2">
+                <input class="form-control" id="Description" name="Description" type="text" placeholder="Description" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Amount">Amount</label>
+            <div class="col-md-2">
+                <input class="form-control" id="Amount" name="Amount" type="number" min="0" placeholder="Amount" required="required">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Price">Price</label>
+            <div class="col-md-2">
+                <input class="form-control" id="Price" name="Price" type="number" min="0" placeholder="Price" required="required">
+            </div>
+        </div>
+
+
+        <input class="form-control" id="enterpriseId" name="enterpriseId" type="hidden" value="@ViewBag.EntId" required="required">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Изображение</label>
+            <div class="col-md-2">
+                <input id="imageUpload" accept="image/*" name="imageUpload" type="file" required="required" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default btn-outline " />
+                @HtmlManager.AddButton(Html.ActionLink("Back", "Enterprises", "Owner"), "background-color:white")
+            </div>
+        </div>
+    </div>
+}

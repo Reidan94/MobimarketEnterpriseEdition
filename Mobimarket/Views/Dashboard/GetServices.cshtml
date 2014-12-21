@@ -1,0 +1,66 @@
+﻿@section Scripts
+{
+    <script>
+
+        var productsImage = '/Images/Clients/';
+        var colors = ['red', 'orange', 'yellow', 'blue', '#00FFFF', 'green', '#00FF00'];
+
+        function loadServices() {
+            $.ajax({
+                async: false,
+                url: "/Api/GetServices",
+                type: "post",
+                success: function (data) {
+                    console.log('Api/GetServices done!');
+                    console.log(data.length);
+
+                    for (var i = 0; i < data.length; i++) {
+                        var nameTd = '<td>' + data[i].Name + '</td>';
+                        var descriptionTd = '<td>' + data[i].Description + '</td>';
+                        var durationTd = '<td>' + data[i].Duration + '</td>';
+                        var costTd = '<td>' + data[i].Cost + '</td>';
+                        var purchaseLink = '<a style="display: inline-block" title="Purchase" href="#"><i class="fa fa-pencil fa-fw"></i>Purchase</a>';
+                        var image = '<img src="' + data[i].Image + '"style="height:50px;width:50px">';
+                        var imagetd = '<td>' + image + '</td>';
+                        var purchasetd = '<td>' + purchaseLink + '</td>';
+
+                        var tr = '<tr>' + nameTd + imagetd + descriptionTd + durationTd + costTd + purchasetd + '</td>';
+                        $("#services_body").append(tr);
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+            $("#services_body").empty();
+
+            loadServices();
+        });
+    </script>
+}
+<h2>Services</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th></th>
+                                <th>Description</th>
+                                <th>Duration</th>
+                                <th>Cost</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="services_body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

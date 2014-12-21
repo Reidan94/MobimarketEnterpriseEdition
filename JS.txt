@@ -1,0 +1,36 @@
+<script>
+    function GetMainTop(count) {
+        $.ajax({
+            url: "/Json/GetTopEnterprises", data: { count: count }, success: function (data) {
+                for (var i = 0; i < count; i++) {
+                    //document.getElementById("top".concat(i.toString())).innerHTML = data[i].Title;
+                    document.getElementById("top".concat(i.toString())).src = data[i].LogoPath;
+                }
+            }
+        });
+    }
+
+    GetMainTop(1);
+</script>
+
+
+
+public JsonResult GetTopEnterprises(int count)
+        {
+            var dbo = new DbProvider();
+
+            var enterpriseManager = new Models.Managers.EnterpriseManager();
+            var option = enterpriseManager.GetTopEnterprises(count);
+
+            var result = enterprisesToJson(option);
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            return result;
+        }
+
+
+  private JsonResult enterprisesToJson(List<Enterprise> e)
+        {
+            return Json(e.Select(x => new { Id = x.Id, Title = x.Title, Type = x.Type, Description = x.Description, LogoPath = x.LogoPath }));
+        }
+

@@ -1,0 +1,52 @@
+﻿@section Scripts
+{
+    <script>
+        var usersImage = '/Images/Clients/';
+
+        var colors = ['red', 'orange', 'yellow', 'blue', '#00FFFF', 'green', '#00FF00'];
+
+        function loadServices() {
+            $.ajax({
+                async: false,
+                url: "/Api/UserInfo",
+                type: "post",
+                success: function (data) {
+                    var name = data.LastName + ' ' + data.FirstName;
+                    var bday = data.BirthDay;
+                    var email = data.Email;
+                    var imgSrc = data.PicturePath;
+                    var img = '<img src="' + usersImage + imgSrc + '" class="thumb" style="height:250px;width:200px"/>';
+                    $('#Name').html(name);
+                    $('#img').html(img);
+                    $('#email').html(email);
+                    $('#bday').html(bday);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+            $("#dataTables-example_info").empty();
+            loadServices();
+        });
+    </script>
+}
+
+<h2>Profile</h2>
+
+<section>
+    <div class="user-avatar">
+        <a class="magnifier" href="">
+            <div class="" id="img" style="margin-top:10px">
+            </div>
+        </a>
+    </div>
+
+    <p style="font-size: large"><h1 id="Name"></h1></p>
+    </br>
+    </br>
+    <p style="font-size: large"><span></span><span id="email"></span></p>
+    <p style="font-size: large"><span></span><span id="bday"></span></p>
+    <p style="font-size: large"><span></span><span id="start"></span></p>
+
+</section>
