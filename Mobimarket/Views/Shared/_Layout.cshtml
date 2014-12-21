@@ -285,6 +285,7 @@
     </div>
     @Scripts.Render("~/Scripts/js")
     @Scripts.Render("~/bundles/DataTablesScripts")
+
     <script>
         $(document).ready(function () {
             $("#logout").click(function () {
@@ -296,8 +297,20 @@
                         window.location.pathname = "/Dashboard/Index";
                     }
                 });
-
             });
+
+            setInterval(function () {
+                $.ajax({
+                    async: false,
+                    url: "/Api/OrderInfo",
+                    type: "post",
+                    success: function (data) {
+                        if (data == true)
+                            alert("Был произведен заказ!");
+                    }
+                });
+
+            }, 4000);
         });
 
     </script>

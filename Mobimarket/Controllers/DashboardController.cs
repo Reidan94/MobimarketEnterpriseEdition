@@ -1,4 +1,5 @@
-﻿using Mobimarket.BL;
+﻿using Microsoft.AspNet.SignalR;
+using Mobimarket.BL;
 using Mobimarket.CrosscuttingFunctionality.ErrorProcessing;
 using Mobimarket.CrosscuttingFunctionality.Security;
 using Mobimarket.Models;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.SignalR.Client;
 
 namespace Mobimarket.Controllers
 {
@@ -17,14 +19,15 @@ namespace Mobimarket.Controllers
         public ActionResult Index(int? id)
         {
             if (!ExistsOwner()) return RedirectToAction("LogIn", "Owner");
-            if (id != null)
-                ViewBag.Result = ProcessResults.GetById(id.Value);
 
             return View();
         }
 
         public ActionResult Enterprise(int id)
         {
+            var ctx = GlobalHost.ConnectionManager.GetHubContext<OrderHub>();
+            ctx.Clients.All.hello("Reidan", "Hello");
+
             if (!ExistsOwner())
                 return RedirectToAction("LogIn", "Owner");
 
@@ -115,17 +118,17 @@ namespace Mobimarket.Controllers
             return View();
         }
 
-        public ActionResult GetServices() 
+        public ActionResult GetServices()
         {
             return View();
         }
 
-        public ActionResult TopProducts() 
+        public ActionResult TopProducts()
         {
             return View();
         }
 
-        public ActionResult GetIncome() 
+        public ActionResult GetIncome()
         {
             return View();
         }

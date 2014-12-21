@@ -39,7 +39,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Client">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -106,9 +119,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -258,7 +268,12 @@
     <Compile Include="Models\Service.cs">
       <DependentUpon>MobimarketDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalR.Sample\Startup.cs" />
+    <Compile Include="SignalR.Sample\Stock.cs" />
+    <Compile Include="SignalR.Sample\StockTicker.cs" />
+    <Compile Include="SignalR.Sample\StockTickerHub.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +311,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
     <Content Include="Scripts\plugins\dataTables\dataTables.bootstrap.js" />
     <Content Include="Scripts\plugins\dataTables\jquery.dataTables.js" />
     <Content Include="Scripts\plugins\flot\excanvas.min.js" />
@@ -311,6 +328,11 @@
     <Content Include="Scripts\plugins\morris\morris.min.js" />
     <Content Include="Scripts\plugins\morris\raphael.min.js" />
     <Content Include="Scripts\sb-admin-2.js" />
+    <Content Include="SignalR.Sample\jquery-1.10.2.min.js" />
+    <Content Include="SignalR.Sample\jquery.color-2.1.2.min.js" />
+    <Content Include="SignalR.Sample\SignalR.StockTicker.js" />
+    <Content Include="SignalR.Sample\StockTicker.css" />
+    <Content Include="SignalR.Sample\StockTicker.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -369,6 +391,7 @@
     <Content Include="Views\Dashboard\GetServices.cshtml" />
     <Content Include="Views\Dashboard\GetIncome.cshtml" />
     <Content Include="Views\Dashboard\UserInfo.cshtml" />
+    <Content Include="SignalR.Sample\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

@@ -135,9 +135,9 @@
             enterpriseId = parseInt(splittedStr[splittedStr.length - 1]);
             console.log(enterpriseId);
 
-            var addCont = '<a href= "/Dashboard/AddContact?enterpriseId=' + enterpriseId + '">Add Contact</a>';
-            var addBr = '<a href="/Dashboard/AddBranch?enterpriseId=' + enterpriseId + '">Add Branch</a>';
-            var addPrd = '<a href ="/Dashboard/AddProduct?enterpriseId=' + enterpriseId + '">Add Product</a>';
+            var addCont = '<a href= "/Dashboard/contact/add/' + enterpriseId + '">Add Contact</a>';
+            var addBr = '<a href="/Dashboard/branch/add/' + enterpriseId + '">Add Branch</a>';
+            var addPrd = '<a href ="/Dashboard/product/add/' + enterpriseId + '">Add Product</a>';
 
             $("#add_contact").html(addCont);
             $("#add_branch").html(addBr);

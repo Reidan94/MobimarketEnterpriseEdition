@@ -10,6 +10,8 @@ namespace Mobimarket.Controllers
 {
     public class ApiController : BaseController
     {
+        private static bool HasOrder = false;
+
         private static string GetEnterpriseType(int type)
         {
             if (type == 1)
@@ -49,6 +51,23 @@ namespace Mobimarket.Controllers
             };
 
             HttpContext.Response.Cookies.Set(keyCookie);
+        }
+
+        public void OrderCame()
+        {
+            HasOrder = true;
+        }
+
+        [HttpPost]
+        public JsonResult OrderInfo()
+        {
+            if (HasOrder)
+            {                    
+                HasOrder = false;
+                return Json(true);
+            }
+
+            return Json(false);
         }
 
         [HttpPost]

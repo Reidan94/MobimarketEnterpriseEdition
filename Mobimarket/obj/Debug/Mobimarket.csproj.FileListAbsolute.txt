@@ -53,3 +53,9 @@ E:\MobimarketEnterprise\Mobimarket\bin\Microsoft.Owin.Security.MicrosoftAccount.
 E:\MobimarketEnterprise\Mobimarket\obj\Debug\Mobimarket.csprojResolveAssemblyReference.cache
 E:\MobimarketEnterprise\Mobimarket\obj\Debug\Mobimarket.dll
 E:\MobimarketEnterprise\Mobimarket\obj\Debug\Mobimarket.pdb
+E:\MobimarketEnterprise\Mobimarket\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\MobimarketEnterprise\Mobimarket\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\MobimarketEnterprise\Mobimarket\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\MobimarketEnterprise\Mobimarket\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\MobimarketEnterprise\Mobimarket\bin\Microsoft.AspNet.SignalR.Client.dll
+E:\MobimarketEnterprise\Mobimarket\bin\Microsoft.AspNet.SignalR.Client.xml
