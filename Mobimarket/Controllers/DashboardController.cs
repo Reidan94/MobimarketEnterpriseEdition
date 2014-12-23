@@ -25,8 +25,6 @@ namespace Mobimarket.Controllers
 
         public ActionResult Enterprise(int id)
         {
-            var ctx = GlobalHost.ConnectionManager.GetHubContext<OrderHub>();
-            ctx.Clients.All.hello("Reidan", "Hello");
 
             if (!ExistsOwner())
                 return RedirectToAction("LogIn", "Owner");

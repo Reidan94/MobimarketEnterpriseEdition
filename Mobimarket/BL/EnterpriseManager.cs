@@ -9,9 +9,36 @@
 
     public class EnterpriseManager : Manager
     {
+        private static Random rand = new Random(Environment.TickCount);
+
         public static Enterprise GetEnterprise(Predicate<Enterprise> predicate)
         {
             return mobiMarket.Enterprises.FirstOrDefault(ent => predicate(ent));
+        }
+
+        public static int CurrentEnterprise() 
+        {
+            return 0;
+        }
+
+        public static DateTime GetMinDateTime() 
+        {
+            return new DateTime(2014, 12, 23, 12, 13, 0);
+        }
+
+        public static void ConfirmOrder(int id) 
+        {
+
+        }
+
+        public static bool CheckOrder(int id) 
+        {
+            return true;
+        }
+
+        public static int GetFreeCashBox(int entId)
+        {
+            return rand.Next(1, 4);
         }
 
         public static ProcessResult AddEnterprise(Enterprise enterprise, HttpPostedFileBase imageUpload)
@@ -105,7 +132,7 @@
 
             product.PicturePath = SaveProductImage(imageUpload, product.Name);
 
-            mobiMarket.Products.Add(product);            
+            mobiMarket.Products.Add(product);
             mobiMarket.SaveChanges();
             return ProcessResults.ProductSuccessfullyAdded;
         }

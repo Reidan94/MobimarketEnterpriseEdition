@@ -15,6 +15,11 @@ namespace Mobimarket.BL
             return mobiMarket.Products.FirstOrDefault(product => isEqual(product));
         }
 
+        public static Product GetProduct(int uid) 
+        {
+            return mobiMarket.Products.ToList().FirstOrDefault(x => x.Id == uid);
+        }
+
         public static ProcessResult AddProduct(int enterpriseId, Product product, HttpPostedFileBase imageUpload)
         {
             var enterprise = EnterpriseManager.GetEnterprise(ent => ent.Id == enterpriseId);

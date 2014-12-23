@@ -11,6 +11,9 @@ namespace Mobimarket.Controllers
     public class ApiController : BaseController
     {
         private static bool HasOrder = false;
+        private static Dictionary<int, Queue<OrderModel>> orders = new Dictionary<int, Queue<OrderModel>>();
+        private static OrderModel order;
+        private static DateTime curDateTime;
 
         private static string GetEnterpriseType(int type)
         {
@@ -62,7 +65,7 @@ namespace Mobimarket.Controllers
         public JsonResult OrderInfo()
         {
             if (HasOrder)
-            {                    
+            {
                 HasOrder = false;
                 return Json(true);
             }
@@ -194,6 +197,64 @@ namespace Mobimarket.Controllers
                 x.PicturePath,
                 ordersCount = rnd.Next(30, 90)
             }).OrderBy(x => -x.ordersCount));
+        }
+
+        [HttpGet]
+        public void Start(int hour, int minutes)
+        {
+            order = new OrderModel();
+            curDateTime = new DateTime(2014, 12, 23, hour, minutes, 0);
+        }
+
+        [HttpGet]
+        public JsonResult AddOrder(int id)
+        {
+            var product = ProductManager.GetProduct(id);
+            order.orderItems.Add(new OrderItem
+            {
+                Id = id,
+                Price = product.Price
+            });
+
+            return Json("OK", JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Finish()
+        {
+            return Json(new
+            {
+                CashBox = EnterpriseManager.GetFreeCashBox(EnterpriseManager.CurrentEnterprise()),
+                dateTime = curDateTime
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public void ConfirmOrder(int id)
+        {
+            EnterpriseManager.ConfirmOrder(id);
+        }
+
+        [HttpGet]
+        public JsonResult GetOrder(int entId)
+        {
+            var myorders = new List<object>();
+            foreach (var item in order.orderItems)
+            {
+                var product = ProductManager.GetProduct(item.Id);
+
+                myorders.Add(new
+                {
+                    Name = product.Name,
+                    Image = product.PicturePath,
+                    Price = product.Price
+                });
+            }
+
+            return Json(myorders, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult IsOrderConfirmed(int id)
+        {
+            return Json(EnterpriseManager.CheckOrder(id));
         }
 
         [HttpPost]

@@ -182,6 +182,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderModel.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="CrosscuttingFunctionality\ErrorProcessing\ProcessResult.cs" />
     <Compile Include="CrosscuttingFunctionality\Security\SecurityManager.cs" />
