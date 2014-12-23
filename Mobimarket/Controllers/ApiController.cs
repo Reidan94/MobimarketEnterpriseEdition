@@ -14,6 +14,7 @@ namespace Mobimarket.Controllers
         //private static Dictionary<int, Queue<OrderModel>> orders = new Dictionary<int, Queue<OrderModel>>();
         private static OrderModel order;
         private static DateTime curDateTime;
+        private static bool IsFinished = false;
 
         private static string GetEnterpriseType(int type)
         {
@@ -202,8 +203,20 @@ namespace Mobimarket.Controllers
         [HttpGet]
         public void Start(int hour, int minutes)
         {
+            IsFinished = false;
             order = new OrderModel();
             curDateTime = new DateTime(2014, 12, 23, hour, minutes, 0);
+        }
+
+        [HttpGet]
+        public JsonResult IsReady()
+        {
+            if (IsFinished)
+            {
+                IsFinished = false;
+                return Json(new { IsReady = true }, JsonRequestBehavior.AllowGet);
+            }
+            else return Json(new { IsReady = false }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -223,16 +236,31 @@ namespace Mobimarket.Controllers
         public JsonResult Finish()
         {
             order = new OrderModel();
+            IsFinished = true;
             return Json(new
             {
                 CashBox = EnterpriseManager.GetFreeCashBox(EnterpriseManager.CurrentEnterprise()),
                 dateTime = curDateTime
             }, JsonRequestBehavior.AllowGet);
+
+
         }
 
         public void ConfirmOrder(int id)
         {
             EnterpriseManager.ConfirmOrder(id);
+        }
+
+        [HttpGet]
+        public JsonResult GetEnterprise()
+        {
+            var enterprise = EnterpriseManager.GetEnterprise(1);
+            return Json(new
+            {
+                enterprise.Title,
+                enterprise.Description,
+                enterprise.LogoPath
+            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
