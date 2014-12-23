@@ -11,7 +11,7 @@ namespace Mobimarket.Controllers
     public class ApiController : BaseController
     {
         private static bool HasOrder = false;
-        private static Dictionary<int, Queue<OrderModel>> orders = new Dictionary<int, Queue<OrderModel>>();
+        //private static Dictionary<int, Queue<OrderModel>> orders = new Dictionary<int, Queue<OrderModel>>();
         private static OrderModel order;
         private static DateTime curDateTime;
 
@@ -219,8 +219,10 @@ namespace Mobimarket.Controllers
             return Json("OK", JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public JsonResult Finish()
         {
+            order = new OrderModel();
             return Json(new
             {
                 CashBox = EnterpriseManager.GetFreeCashBox(EnterpriseManager.CurrentEnterprise()),
